@@ -16,7 +16,7 @@ class TreeBuilderPolicy < TreeBuilder
 
   def compliance_control_kids(mode)
     text_i18n = {:compliance => {
-                                 :PhysicalServer      => N_("Physical Server Compliance Policies"),
+                                 :PhysicalServer      => _("Physical Server Compliance Policies"),
                                  :Host                => _("Host Compliance Policies"),
                                  :Vm                  => _("Vm Compliance Policies"),
                                  :ContainerReplicator => _("Replicator Compliance Policies"),
@@ -25,7 +25,7 @@ class TreeBuilderPolicy < TreeBuilder
                                  :ContainerImage      => _("Container Image Compliance Policies"),
                                  :ExtManagementSystem => _("Provider Compliance Policies")},
                  :control    => {
-                                 :PhysicalServer      => N_("Physical Server Control Policies"),
+                                 :PhysicalServer      => _("Physical Server Control Policies"),
                                  :Host                => _("Host Control Policies"),
                                  :Vm                  => _("Vm Control Policies"),
                                  :ContainerReplicator => _("Replicator Control Policies"),
@@ -51,6 +51,8 @@ class TreeBuilderPolicy < TreeBuilder
                'pficon pficon-image'
              when 'ExtManagementSystem'
                'pficon pficon-server'
+             when 'PhysicalServer'
+               'fa fa-building-o'
              end
       {
         :id   => "#{mode}-#{model.name.camelize(:lower)}",

@@ -89,6 +89,7 @@ class MiqEventDefinitionDecorator < Draper::Decorator
       "host_provisioned"                            => "pficon pficon-screen",
       "host_remove_from_cluster"                    => "pficon pficon-screen",
       "host_scan_complete"                          => "pficon pficon-screen",
+      "physical_server_turned_on"                   => "pficon pficon-cluster",
       "request_assign_company_tag"                  => "fa fa-tag",
       "request_containerimage_scan"                 => "pficon pficon-image",
       "request_host_disable_vmotion"                => "pficon pficon-screen",

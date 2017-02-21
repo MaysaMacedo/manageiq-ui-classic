@@ -55,6 +55,8 @@ class TreeBuilderProtect < TreeBuilder
                'pficon pficon-image'
              when 'ExtManagementSystem'
                'pficon pficon-server'
+             when 'PhysicalServer'
+               'fa fa-building-o'
              end
       {
         :id           => "policy_#{policy.id}",

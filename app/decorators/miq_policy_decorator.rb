@@ -17,6 +17,8 @@ class MiqPolicyDecorator < Draper::Decorator
              'pficon pficon-image'
            when 'ExtManagementSystem'
              'pficon pficon-server'
+           when 'PhysicalServer'
+            'fa fa-building-o'
            end
     "#{icon}#{active ? '' : ' fa-inactive'}"
   end
