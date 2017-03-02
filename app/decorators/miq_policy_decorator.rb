@@ -15,6 +15,8 @@ class MiqPolicyDecorator < MiqDecorator
              'pficon pficon-image'
            when 'ExtManagementSystem'
              'pficon pficon-server'
+           when 'PhysicalServer'
+            'fa fa-building-o'
            end
     "#{icon}#{active ? '' : ' fa-inactive'}"
   end

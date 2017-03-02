@@ -77,6 +77,7 @@ class TreeBuilderButtons < TreeBuilderAeCustomization
     when 'Service'             then {:icon  => 'pficon pficon-service'}
     when 'Storage'             then {:icon  => 'fa fa-database'}
     when 'Vm'                  then {:icon  => 'pficon pficon-virtual-machine'}
+    when 'PhysicalServer'      then {:icon  => 'fa fa-building-o'}
     end
   end
 end
