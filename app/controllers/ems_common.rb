@@ -114,7 +114,7 @@ module EmsCommon
       'physical_servers'              => [PhysicalServer,         _("Physical Servers")],
     }
   end
-  
+
   def display_block_storage_managers
     nested_list('block_storage_manager', ManageIQ::Providers::StorageManager, :parent_method => :block_storage_managers)
   end
@@ -149,7 +149,7 @@ module EmsCommon
         host_aggregates hosts images instances load_balancers middleware_datasources middleware_deployments
         middleware_domains middleware_messagings middleware_server_groups middleware_servers miq_templates
         network_ports network_routers object_storage_managers orchestration_stacks persistent_volumes
-        security_groups storage_managers storages vms physical_servers  
+        security_groups storage_managers storages vms physical_servers
       )
     end
 
@@ -401,7 +401,9 @@ module EmsCommon
                                      "orchestration_stack_",
                                      "security_group_",
                                      "storage_",
-                                     "vm_")
+                                     "vm_",
+                                     "ems_physical_infra_protect",
+                                     "ems_physical_infra_tag")
 
       case params[:pressed]
       # Clusters
@@ -441,6 +443,10 @@ module EmsCommon
       when "network_router_tag"               then tag(NetworkRouter)
       when "orchestration_stack_tag"          then tag(OrchestrationStack)
       when "security_group_tag"               then tag(SecurityGroup)
+      # Ems Physical Infra
+      when "ems_physical_infra_protect"       then assign_policies(EmsPhysicalInfra)
+      when "ems_physical_infra_tag"           then tag(EmsPhysicalInfra)
+
       end
 
       pfx = pfx_for_vm_button_pressed(params[:pressed])
@@ -460,7 +466,7 @@ module EmsCommon
                   @flash_array.nil?
 
         unless ["host_edit", "#{pfx}_edit", "#{pfx}_miq_request_new", "#{pfx}_clone",
-                "#{pfx}_migrate", "#{pfx}_publish"].include?(params[:pressed])
+                "#{pfx}_migrate", "#{pfx}_publish", "ems_physical_infra_protect", "ems_physical_infra_tag"].include?(params[:pressed])
           @refresh_div = "main_div"
           @refresh_partial = "layouts/gtl"
           show                                                        # Handle EMS buttons
