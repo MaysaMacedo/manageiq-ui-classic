@@ -1306,8 +1306,11 @@ Rails.application.routes.draw do
         download_data
         perf_top_chart
         protect
+        policies
+        policy_sim
         show_list
         show
+        tagging_edit
       ) + compare_get,
 
       :post   =>  %w(
@@ -1316,13 +1319,22 @@ Rails.application.routes.draw do
         create
         create_del
         listnav_search_selected
+        protect
+        policies
+        policy_sim
+        policy_sim_add
+        policy_sim_remove
+        tagging_edit
+        tag_edit_form_field_changed
         update
         update_del
+        x_search_by_name
         quick_search
       ) +
           adv_search_post +
           exp_post +
-          save_post
+          save_post +
+          policy_post
     },
 
     :ems_physical_infra_dashboard      => {
