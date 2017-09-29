@@ -40,5 +40,11 @@ class PhysicalServerController < ApplicationController
   helper_method :textual_group_list
 
   def button
+      @edit = session[:edit]                                  # Restore @edit for adv search box
+      assign_policies(PhysicalServer) if params[:pressed] == "physical_server_protect"
+      tag(PhysicalServer) if params[:pressed] == "physical_server_tag"
+
+      return if ["physical_server_protect", "physical_server_tag"].include?(params[:pressed]) &&
+                  @flash_array.nil?   # Some other screen is showing, so return
   end
 end
